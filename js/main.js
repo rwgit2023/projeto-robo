@@ -17,13 +17,31 @@ const subtrair = document.querySelector('#subtrair')
 const somar = document.querySelector('#somar')
 const braco = document.querySelector('#braco')
 
-somar.addEventListener("click", function(){
-    braco.value = parseInt(braco.value) +1
-})
+const controle = document.querySelectorAll('.controle-ajuste')
 
-subtrair.addEventListener("click", function(){
-    braco.value = parseInt(braco.value) -1
-})
+ controle.forEach(function(elemento) {             //usamos o foreach para buscar dentro do array do controle os botões existentes e assim retornando o elemento dentro dele do btao (+ ou -)
+    elemento.addEventListener("click", function(evento){//  Escutador de click do evento
+        manipulaDados(evento.target.textContent)
+    } )
+    
+});
 
+
+// somar.addEventListener("click", function(){
+//     manipulaDados("somar")
+// })
+
+// subtrair.addEventListener("click", function(){
+//     manipulaDados("subtrair")
+// })
+
+function manipulaDados(operacao){
+    if (manipulaDados === '-'){
+        braco.value = parseInt(braco.value) -1
+    }
+    else {
+        braco.value = parseInt(braco.value) +1
+    }
+}
 
 
